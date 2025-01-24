@@ -1,0 +1,245 @@
+@import url('https://fonts.cdnfonts.com/css/audiowide');
+.banner{
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.banner .slider .item img{
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h1{
+    font-family: 'Audiowide', sans-serif;
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+.banner .content .author{
+    font-family: 'Audiowide', sans-serif;
+    text-align: right;
+    max-width: 200px;
+}
+.banner .content h2{
+    font-size: 3em;
+}
+.banner .content .model{
+   
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+@media screen and (max-width: 2000px) {
+    .banner .slider{
+        width: 160px;
+        height: 150px;
+        left: calc(50% - 80px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .banner .content h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+    .banner .content .author{
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: auto;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width: 2000px) {
+    .banner .slider{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
+    }
+    .banner .content h1{
+        font-size: 5em;
+    }
+}
+.text{
+    text-align: center;
+    color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: auto;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 1.9em;
+        font-family: 'Audiowide', sans-serif;
+  
+    line-height: 1em;
+    color: #bbbed0;
+    position: relative;
+}
+nav{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px;
+    
+   
+    font-family: 'Audiowide', sans-serif;
+    color: #d2d2d2;
+    line-height: 1.5;
+    height: 100%;
+width:100%;
+    margin: 15px;
+    gap: 3px;
+   
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    background-color: white;
+    margin: 15px;
+    gap: 3px;
+  
+    margin-top: 40px;
+    margin-bottom: 0%;
+
+}
+
+body{
+    background: linear-gradient(to right, #ffffff, #002b4f);
+    height: 100vh;
+    width: auto;
+}
+button{
+    padding: 15px;
+    background-color: black;
+    color: #d2d2d2;
+    border-radius: 10px;
+    width: 137.6px;
+    font-size: 1.2rem;
+    
+}
+button:hover{
+    width: 150px;
+    transition: 0.3s;
+   font-size: 1rem;
+}
+
+
+
+@media (max-width: 768px) {
+    .banner .slider {
+        width: 150px;
+        height: 200px;
+    }
+    .text h1 {
+        font-size: 2rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+    }
+
+    footer button {
+        width: 130px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner .slider {
+        width: 100px;
+        height: 150px;
+    }
+
+    .text h1 {
+        font-size: 1.5rem;
+    }
+
+    .text p {
+        font-size: 0.9rem;
+    }
+
+    footer button {
+        font-size: 0.8rem;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
